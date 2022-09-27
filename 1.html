@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+  <script>
+    "use strict";
+
+    // ES5--------------------------------------------------------ES5
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = price;
+    };
+
+    ProductES5.prototype.make25Discount = function () {
+      this.price *= 0.75;
+    };
+
+    const product_1 = new ProductES5('product_1', 5000)
+    console.log(`Наименование: ${product_1.name}, цена: ${product_1.price}`);
+    product_1.make25Discount();
+    console.log(`Наименование: ${product_1.name}, цена: ${product_1.price}`);
+
+
+    // ES6--------------------------------------------------------ES6
+    class ProductES6 {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+
+      make25Discount() {
+        this.price *= 0.75;
+      }
+    }
+
+    const product_2 = new ProductES6('pruduct_2', 5000);
+    console.log(`Название: ${product_2.name}, цена: ${product_2.price}`);
+    product_2.make25Discount();
+    console.log(`Название: ${product_2.name}, цена: ${product_2.price}`);
+
+
+    /* либо прослушал, либо не понял, каким из стилей лучше пользоваться,
+    на лекции не успеваю (смотрю в записи), поэтому уточняю у вас, 
+    заранее спасибо! Из найденного материала прочел, что ES5 более старый, 
+    но еще активно используется, ES6 вроде получил уже поддержку всех 
+    браузеров! Вопрос в следующем, есть ли смысл писать в стиле ES5
+    или лучше изучать стандарты ES6? */
+
+  </script>
+</body>
+
+</html>
